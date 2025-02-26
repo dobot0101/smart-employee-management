@@ -12,7 +12,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   @Post('admin')
-  @Roles(Role.SUPER_ADMIN)
+  @Roles(Role.ADMIN)
   async createCompanyAdmin(@Body() createAdminDto: CreateAdminDto) {
     const temporaryPassword = this.generateTemporaryPassword();
     const admin = await this.usersService.createAdmin(
