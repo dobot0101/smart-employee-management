@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { CreateAdminDto } from './dto/create-admin.dto';
-import { Role } from 'src/common/enums/role.enum';
+import { Role } from '../common/enums/role.enum';
 
 @Injectable()
 export class UsersService {
