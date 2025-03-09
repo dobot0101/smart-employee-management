@@ -6,8 +6,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/app
+      # 컨테이너 시작 시 발생하는 bcrypt 라이브러리의 invalid ELF 에러 방지를 위해 /app/node_modules로 변경하여 컨테이너의 node_modules를 사용하도록 변경
+      # - /usr/src/app/node_modules 
+      - /app/node_modules
     environment:
       - NODE_ENV=development
       - DB_HOST=postgres
