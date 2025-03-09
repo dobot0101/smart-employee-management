@@ -4,6 +4,8 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { User } from './users/entities/user.entity';
 import { EmployeesModule } from './employees/employees.module';
+import { AttendanceModule } from './attendance/attendance.module';
+import { Attendance } from './attendance/entities/attendance.entity';
 
 @Module({
   imports: [
@@ -14,12 +16,13 @@ import { EmployeesModule } from './employees/employees.module';
       username: process.env.DB_USERNAME || 'postgres',
       password: process.env.DB_PASSWORD || 'postgres',
       database: process.env.DB_DATABASE || 'smart-employee-management',
-      entities: [User],
+      entities: [User, Attendance],
       synchronize: true, // Don't use in production
     }),
     UsersModule,
     AuthModule,
-    EmployeesModule
+    EmployeesModule,
+    AttendanceModule
   ],
 })
 export class AppModule {} 
